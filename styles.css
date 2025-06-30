@@ -198,6 +198,7 @@ nav ul li a:hover {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .hero-text p {
