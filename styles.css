@@ -118,6 +118,7 @@ nav {
   max-width: 210px;
   margin-right: 0.5rem;
   transition: transform 0.4s ease;
+  animation: fadeIn 0.5s ease-in;
 }
 
 .site-logo:hover {
@@ -184,6 +185,7 @@ nav ul li a:hover {
   font-weight: bold;
   margin-bottom: 1rem;
   color: var(--text-color);
+  animation: slideIn 0.6s ease-out;
 }
 
 .hero-text h2 span {
@@ -227,6 +229,7 @@ nav ul li a:hover {
   font-weight: bold;
   color: var(--text-color);
   margin-bottom: 0.5rem;
+  animation: slideIn 0.6s ease-out;
 }
 
 .typewriter-text h3 span {
@@ -255,7 +258,8 @@ nav ul li a:hover {
   margin: 1rem auto 1.5rem;
 }
 
-#intro .contact-icons {
+#intro .contact-icons,
+.contact-icons {
   display: flex;
   justify-content: center;
   gap: 1.2rem;
@@ -264,12 +268,14 @@ nav ul li a:hover {
   margin-top: 1rem;
 }
 
-#intro .contact-icons a {
+#intro .contact-icons a,
+.contact-icons a {
   color: var(--link-color);
   transition: color 0.3s, transform 0.3s ease;
 }
 
-#intro .contact-icons a:hover {
+#intro .contact-icons a:hover,
+.contact-icons a:hover {
   color: var(--link-hover);
   transform: scale(1.2);
 }
@@ -297,7 +303,8 @@ section {
 /* About */
 #about h2 {
   font-size: 1.8rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  animation: slideIn 0.6s ease-out;
 }
 
 #about p {
@@ -315,6 +322,7 @@ section {
 #services h2 {
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
+  animation: slideIn 0.6s ease-out;
 }
 
 .services-container {
@@ -366,8 +374,7 @@ section {
 #skills h2 {
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
-  color: var(--link-hover);
-  font-weight: normal;
+  animation: slideIn 0.6s ease-out;
 }
 
 .tech-stack {
@@ -418,9 +425,13 @@ section {
 }
 
 /* Projects */
+#projects {
+}
+
 #projects h2 {
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
+  animation: slideIn 0.6s ease-out;
 }
 
 .projects-container {
@@ -485,6 +496,7 @@ section {
 #contact h2 {
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
+  animation: slideIn 0.6s ease-out;
 }
 
 .contact-form {
@@ -530,24 +542,6 @@ section {
   margin-top: 1rem;
   font-size: 0.9rem;
   color: var(--text-color);
-}
-
-.contact-icons {
-  display: flex;
-  justify-content: center;
-  gap: 1.2rem;
-  font-size: 1.6rem;
-  flex-wrap: wrap;
-}
-
-.contact-icons a {
-  color: var(--link-color);
-  transition: color 0.3s, transform 0.3s ease;
-}
-
-.contact-icons a:hover {
-  color: var(--link-hover);
-  transform: scale(1.2);
 }
 
 /* Back to Top Button */
@@ -656,7 +650,8 @@ footer {
     padding: 1.5rem 1rem;
   }
 
-  .logos, .contact-icons {
+  .logos,
+  .contact-icons {
     justify-content: center;
   }
 
@@ -737,20 +732,30 @@ footer {
     font-size: 0.9rem;
   }
 
-  #intro .contact-icons, .contact-icons {
+  #intro .contact-icons,
+  .contact-icons {
     font-size: 1.4rem;
     gap: 1rem;
   }
 
-  #about h2, #services h2, #skills h2, #projects h2, #contact h2 {
+  #about h2,
+  #services h2,
+  #skills h2,
+  #projects h2,
+  #contact h2 {
     font-size: 1.6rem;
   }
 
-  #about p, .service p, .project-card p, .contact-form input, .contact-form textarea, .contact-form button {
+  #about p,
+  .service p,
+  .project-card p,
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form button {
     font-size: 0.85rem;
   }
 
-  .service-icon, .logo-item i {
+  .service-icon {
     font-size: 2rem;
   }
 
@@ -765,6 +770,10 @@ footer {
     padding: 0.7rem 1rem;
   }
 
+  .logo-item i {
+    font-size: 2rem;
+  }
+
   .contact-form textarea {
     min-height: 100px;
   }
@@ -777,6 +786,22 @@ footer {
     height: 180px;
   }
 }
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
 
 
 
