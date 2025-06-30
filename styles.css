@@ -23,6 +23,34 @@ img {
   height: auto;
 }
 
+/* Preloader */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #6c2bd9;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 /* Header */
 header {
   background-color: #fff;
@@ -31,6 +59,12 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+header.scrolled {
+  background-color: #f8f8ff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 nav {
@@ -46,7 +80,6 @@ nav {
   font-weight: bold;
   background: linear-gradient(90deg, #6c2bd9, #0077ff);
   -webkit-background-clip: text;
-  background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: 1.5px;
@@ -122,7 +155,6 @@ nav ul li a:hover {
 .hero-text h2 span {
   background: linear-gradient(90deg, #6c2bd9, #0077ff);
   -webkit-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -200,20 +232,12 @@ nav ul li a:hover {
 
 #intro .contact-icons a {
   color: #0077ff;
-  transition: color 0.3s;
+  transition: color 0.3s, transform 0.3s ease;
 }
 
 #intro .contact-icons a:hover {
   color: #6c2bd9;
-}
-
-@keyframes blink {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
+  transform: scale(1.2);
 }
 
 /* Section Base */
@@ -425,11 +449,42 @@ section {
 
 .contact-icons a {
   color: #0077ff;
-  transition: color 0.3s;
+  transition: color 0.3s, transform 0.3s ease;
 }
 
 .contact-icons a:hover {
   color: #6c2bd9;
+  transform: scale(1.2);
+}
+
+/* Back to Top Button */
+#back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(90deg, #6c2bd9, #0077ff);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+}
+
+#back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+#back-to-top:hover {
+  transform: scale(1.1);
 }
 
 /* Footer */
@@ -518,6 +573,12 @@ footer {
 
   .contact-form {
     max-width: 100%;
+  }
+
+  #back-to-top {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
   }
 }
 
