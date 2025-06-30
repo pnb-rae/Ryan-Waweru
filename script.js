@@ -78,12 +78,45 @@ document.addEventListener("DOMContentLoaded", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  // Form submission feedback
+  // Dark mode toggle
+  const themeToggle = document.getElementById("theme-toggle");
+  const currentTheme = localStorage.getItem("theme") || "light";
+  document.documentElement.setAttribute("data-theme", currentTheme);
+  if (currentTheme === "dark") {
+    themeToggle.querySelector("i").classList.replace("ri-moon-line", "ri-sun-line");
+  }
+
+  themeToggle.addEventListener("click", () => {
+    const theme = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+    themeToggle.querySelector("i").classList.toggle("ri-moon-line");
+    themeToggle.querySelector("i").classList.toggle("ri-sun-line");
+  });
+
+  // EmailJS form submission
+  emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
   const contactForm = document.getElementById("contact-form");
+  const formMessage = document.getElementById("form-message");
   contactForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    alert("Message sent! I'll get back to you soon.");
-    contactForm.reset();
+    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+      name: contactForm.name.value,
+      phone: contactForm.phone.value,
+      email: contactForm.email.value,
+      subject: contactForm.subject.value,
+      message: contactForm.message.value,
+    })
+    .then(() => {
+      formMessage.textContent = "Message sent successfully!";
+      formMessage.style.color = "green";
+      contactForm.reset();
+      setTimeout(() => { formMessage.textContent = ""; }, 3000);
+    }, (error) => {
+      formMessage.textContent = "Failed to send message. Please try again.";
+      formMessage.style.color = "red";
+      console.error("EmailJS error:", error);
+    });
   });
 
   // Hide preloader after page load
@@ -93,5 +126,19 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       preloader.style.display = "none";
     }, 500);
+  });
+
+  // Section animations
+  const sections = document.querySelectorAll(".animate-section");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.1 });
+
+  sections.forEach(section => {
+    observer.observe(section);
   });
 });
