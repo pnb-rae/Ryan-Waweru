@@ -310,7 +310,7 @@ section {
 }
 
 #about h2 {
-  font-size: 1.8rem;
+  font-size: 1.6rem; /* Reduced size */
   margin-bottom: 1rem;
   animation: slideIn 0.6s ease-out;
   color: #6c2bd9; /* Purple, non-bold */
@@ -318,7 +318,7 @@ section {
 }
 
 #about .subheading {
-  font-size: 1.4rem;
+  font-size: 1.6rem; /* Increased size */
   font-weight: bold;
   margin-bottom: 1rem;
   color: var(--text-color);
@@ -433,7 +433,7 @@ section {
 .logo-item:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  filter: drop-shadow(0 0 calc(var(--glow-size) * 1.5) var(--glow-color));
+  filter: drop-shadow(0 0 calc(var(--glow-size) * 1.2) var(--glow-color)); /* Reduced glow */
 }
 
 .logo-item i {
