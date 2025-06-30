@@ -95,12 +95,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // EmailJS form submission
-  emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+  emailjs.init("syK520a6xqM02GMTC");
   const contactForm = document.getElementById("contact-form");
   const formMessage = document.getElementById("form-message");
   contactForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+    emailjs.send("service_naxoy4l", "template_i05y8jr", {
       name: contactForm.name.value,
       phone: contactForm.phone.value,
       email: contactForm.email.value,
