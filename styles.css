@@ -509,7 +509,7 @@ section {
   background: linear-gradient(90deg, #0077ff, #6c2bd9);
 }
 
-/* Updated Contact Section */
+/* Contact Section */
 #contact {
   background-color: var(--contact-bg);
   text-align: left;
@@ -525,10 +525,6 @@ section {
 
 .contact-left {
   flex: 1 1 400px;
-  background: var(--bg-color);
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .contact-right {
@@ -538,35 +534,11 @@ section {
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.contact-header {
-  margin-bottom: 2rem;
-}
-
-.contact-heading {
-  font-size: 1.6rem;
-  margin-bottom: 0.5rem;
-  color: #6c2bd9;
-  font-weight: normal;
-}
-
-.get-in-touch {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  color: var(--text-color);
-}
-
-.contact-description {
-  color: var(--text-color);
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
+  min-height: 500px;
 }
 
 .contact-image {
-  margin: 2rem 0;
-  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .contact-image img {
@@ -576,11 +548,27 @@ section {
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-.contact-info {
-  background: var(--bg-color);
-  padding: 2rem;
-  border-radius: 12px;
-  margin-top: 2rem;
+.contact-heading {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  color: #6c2bd9;
+  font-weight: normal;
+  text-align: center;
+}
+
+.get-in-touch {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.contact-description {
+  color: #777;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .contact-name {
@@ -605,16 +593,17 @@ section {
 
 .connect-with-me {
   margin-top: 2rem;
+  text-align: left;
 }
 
 .connect-with-me p {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   font-size: 1.1rem;
   color: var(--text-color);
 }
 
 .contact-icons {
-  display: flex;
+  justify-content: flex-start;
   gap: 1.2rem;
   font-size: 1.6rem;
   flex-wrap: wrap;
@@ -623,8 +612,8 @@ section {
 /* Contact Form Styles */
 .form-row {
   display: flex;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .form-group {
@@ -640,13 +629,6 @@ section {
   font-size: 1rem;
   background: var(--bg-color);
   color: var(--text-color);
-  transition: border-color 0.3s;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: var(--link-color);
-  outline: none;
 }
 
 .form-group textarea {
@@ -667,10 +649,6 @@ section {
   font-size: 1rem;
 }
 
-.contact-form button:hover {
-  background: linear-gradient(90deg, #0077ff, #6c2bd9);
-}
-
 #form-message {
   margin-top: 1rem;
   font-size: 0.9rem;
@@ -679,7 +657,7 @@ section {
 
 /* Dark mode adjustments */
 [data-theme="dark"] .contact-description {
-  color: var(--text-color);
+  color: #aaa;
 }
 
 /* Back to Top Button */
@@ -799,11 +777,12 @@ footer {
   }
 
   .contact-right {
-    min-height: auto;
+    min-height: 600px;
   }
-  
-  .form-row {
-    flex-direction: column;
-    gap: 1rem;
+
+  .contact-heading,
+  .get-in-touch,
+  .contact-description {
+    text-align: center;
   }
 }
