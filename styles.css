@@ -197,6 +197,7 @@ nav ul li a:hover {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .hero-text p {
@@ -756,4 +757,4 @@ footer {
 
   .services-container {
     flex-direction: column;
-    align-items
+    align-items: center;
