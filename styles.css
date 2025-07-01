@@ -195,6 +195,7 @@ nav ul li a:hover {
 .hero-text h2 span {
   background: linear-gradient(90deg, #6c2bd9, #0077ff);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -310,15 +311,15 @@ section {
 }
 
 #about h2 {
-  font-size: 1.6rem; /* Reduced size */
+  font-size: 1.6rem;
   margin-bottom: 1rem;
   animation: slideIn 0.6s ease-out;
-  color: #6c2bd9; /* Purple, non-bold */
+  color: #6c2bd9;
   font-weight: normal;
 }
 
 #about .subheading {
-  font-size: 1.6rem; /* Increased size */
+  font-size: 1.6rem;
   font-weight: bold;
   margin-bottom: 1rem;
   color: var(--text-color);
@@ -393,7 +394,7 @@ section {
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
   animation: slideIn 0.6s ease-out;
-  color: #6c2bd9; /* Purple, non-bold */
+  color: #6c2bd9;
   font-weight: normal;
 }
 
@@ -433,7 +434,7 @@ section {
 .logo-item:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  filter: drop-shadow(0 0 calc(var(--glow-size) * 1.2) var(--glow-color)); /* Reduced glow */
+  filter: drop-shadow(0 0 calc(var(--glow-size) * 1.2) var(--glow-color));
 }
 
 .logo-item i {
@@ -446,8 +447,6 @@ section {
 }
 
 /* Projects */
-#projects {
-}
 
 #projects h2 {
   font-size: 1.8rem;
@@ -510,42 +509,119 @@ section {
   background: linear-gradient(90deg, #0077ff, #6c2bd9);
 }
 
-/* Contact */
+/* Contact Section */
 #contact {
   background-color: var(--contact-bg);
+  text-align: left;
 }
 
-#contact h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  animation: slideIn 0.6s ease-out;
-}
-
-.contact-form {
+.contact-container {
   display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  max-width: 700px;
-  margin: 0 auto 1.5rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.contact-form input,
-.contact-form textarea {
+.contact-left {
+  flex: 1 1 400px;
+}
+
+.contact-right {
+  flex: 1 1 400px;
+}
+
+.contact-image {
+  margin-bottom: 2rem;
+}
+
+.contact-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.contact-heading {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  color: #6c2bd9;
+  font-weight: normal;
+}
+
+.get-in-touch {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.contact-description {
+  color: #777;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.contact-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.contact-title {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.contact-message {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: var(--text-color);
+}
+
+.connect-with-me {
+  margin-top: 2rem;
+}
+
+.connect-with-me p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+
+/* Contact Form Styles */
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  flex: 1;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
   padding: 0.8rem 1rem;
   border: 1px solid var(--skill-border);
   border-radius: 8px;
-  font-size: 0.9rem;
-  width: 100%;
+  font-size: 1rem;
   background: var(--bg-color);
   color: var(--text-color);
 }
 
-.contact-form textarea {
-  min-height: 120px;
+.form-group textarea {
+  min-height: 150px;
 }
 
 .contact-form button {
-  padding: 0.8rem 1rem;
+  width: 100%;
+  padding: 1rem;
+  margin-top: 0.5rem;
   background: linear-gradient(90deg, #6c2bd9, #0077ff);
   color: #fff;
   font-weight: bold;
@@ -553,17 +629,18 @@ section {
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s;
-  font-size: 0.9rem;
-}
-
-.contact-form button:hover {
-  background: linear-gradient(90deg, #0077ff, #6c2bd9);
+  font-size: 1rem;
 }
 
 #form-message {
   margin-top: 1rem;
   font-size: 0.9rem;
   color: var(--text-color);
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .contact-description {
+  color: #aaa;
 }
 
 /* Back to Top Button */
@@ -679,170 +756,4 @@ footer {
 
   .services-container {
     flex-direction: column;
-    align-items: center;
-  }
-
-  .service {
-    max-width: 100%;
-    padding: 1rem;
-  }
-
-  .logo-row {
-    justify-content: center;
-  }
-
-  .contact-form {
-    max-width: 100%;
-  }
-
-  .projects-container {
-    grid-template-columns: 1fr;
-  }
-
-  #back-to-top {
-    width: 36px;
-    height: 36px;
-    font-size: 1rem;
-  }
-}
-
-/* Extra Small Screens (below 480px) */
-@media (max-width: 480px) {
-  .site-logo {
-    height: 48px;
-    max-width: 144px;
-    margin-right: 0.5rem;
-  }
-
-  .hamburger {
-    font-size: 1.5rem;
-  }
-
-  nav ul.nav-links {
-    top: 60px;
-  }
-
-  nav ul li a {
-    font-size: 0.9rem;
-  }
-
-  #theme-toggle {
-    font-size: 0.9rem;
-  }
-
-  section {
-    padding: 2rem 1rem;
-  }
-
-  .hero-text h2 {
-    font-size: 1.8rem;
-  }
-
-  .hero-text p {
-    font-size: 0.9rem;
-  }
-
-  .hero-img img {
-    width: 180px;
-  }
-
-  .typewriter-text h3 {
-    font-size: 1.4rem;
-  }
-
-  .intro-description {
-    font-size: 0.9rem;
-  }
-
-  #intro .contact-icons,
-  .contact-icons {
-    font-size: 1.4rem;
-    gap: 1rem;
-  }
-
-  #about h2,
-  #services h2,
-  #skills h2,
-  #projects h2,
-  #contact h2 {
-    font-size: 1.6rem;
-  }
-
-  #about .about-text,
-  .service p,
-  .project-card p,
-  .contact-form input,
-  .contact-form textarea,
-  .contact-form button {
-    font-size: 0.85rem;
-  }
-
-  .service-icon {
-    font-size: 2rem;
-  }
-
-  .service h3 {
-    font-size: 1.2rem;
-  }
-
-  .logo-item {
-    flex: 1 1 120px;
-    max-width: 140px;
-    min-height: 80px;
-    padding: 0.7rem 1rem;
-  }
-
-  .logo-item i {
-    font-size: 2rem;
-  }
-
-  .contact-form textarea {
-    min-height: 100px;
-  }
-
-  footer {
-    font-size: 0.8rem;
-  }
-
-  .project-card img {
-    height: 180px;
-  }
-}
-
-/* Animation Keyframes */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideIn {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    align-items
