@@ -1,7 +1,7 @@
 /* CSS Variables for Theming */
 :root {
   --bg-color: #ffffff;
-  --text-color: #222;
+  --text-color: #333;
   --header-bg: #fff;
   --header-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
   --hero-bg: #f5f7fa;
@@ -15,13 +15,13 @@
   --card-text: #fff;
   --skill-bg: #ffffff;
   --skill-border: #eee;
-  --glow-color: #6c2bd9;
-  --glow-size: 10px;
+  --success-color: #28a745;
+  --error-color: #dc3545;
 }
 
 [data-theme="dark"] {
   --bg-color: #1a1a1a;
-  --text-color: #e0e0e0;
+  --text-color: #f0f0f0;
   --header-bg: #222;
   --header-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
   --hero-bg: #2a2a2a;
@@ -29,13 +29,14 @@
   --contact-bg: #2a2a2a;
   --footer-bg: #222;
   --footer-border: #333;
-  --link-color: #4da8ff;
+  --link-color: #66b3ff;
   --link-hover: #9b59b6;
   --card-bg: #333;
-  --card-text: #e0e0e0;
+  --card-text: #f0f0f0;
   --skill-bg: #2a2a2a;
   --skill-border: #444;
-  --glow-color: #9b59b6;
+  --success-color: #28a745;
+  --error-color: #dc3545;
 }
 
 /* Reset and Base Styles */
@@ -75,6 +76,7 @@ img {
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  transition: opacity 0.5s ease;
 }
 
 .loader {
@@ -126,7 +128,7 @@ nav {
 
 .site-logo:hover {
   transform: scale(1.05);
-  filter: drop-shadow(0 0 calc(var(--glow-size) * 1.5) var(--glow-color));
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 nav ul.nav-links {
@@ -144,6 +146,11 @@ nav ul li a {
 
 nav ul li a:hover {
   color: var(--link-hover);
+}
+
+nav ul li a:focus {
+  outline: 2px solid var(--link-hover);
+  outline-offset: 2px;
 }
 
 .hamburger {
@@ -164,6 +171,11 @@ nav ul li a:hover {
 
 #theme-toggle:hover {
   transform: scale(1.2);
+}
+
+#theme-toggle:focus {
+  outline: 2px solid var(--link-hover);
+  outline-offset: 2px;
 }
 
 /* Hero and Intro Sections */
@@ -194,10 +206,8 @@ nav ul li a:hover {
 
 .hero-text h2 span {
   background: linear-gradient(90deg, #6c2bd9, #0077ff);
-  -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: transparent;
 }
 
 .hero-text p {
@@ -240,8 +250,8 @@ nav ul li a:hover {
 
 .typewriter-text h3 span {
   background: linear-gradient(90deg, #6c2bd9, #0077ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 
 .typewriter-text h3 #typewriter {
@@ -284,6 +294,12 @@ nav ul li a:hover {
 .contact-icons a:hover {
   color: var(--link-hover);
   transform: scale(1.2);
+}
+
+#intro .contact-icons a:focus,
+.contact-icons a:focus {
+  outline: 2px solid var(--link-hover);
+  outline-offset: 2px;
 }
 
 /* Section Base */
@@ -366,7 +382,6 @@ section {
 .service:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-  filter: drop-shadow(0 0 calc(var(--glow-size) * 1.5) var(--glow-color));
 }
 
 .service-icon {
@@ -435,7 +450,6 @@ section {
 .logo-item:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  filter: drop-shadow(0 0 calc(var(--glow-size) * 1.2) var(--glow-color));
 }
 
 .logo-item i {
@@ -474,7 +488,6 @@ section {
 .project-card:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-  filter: drop-shadow(0 0 calc(var(--glow-size) * 1.5) var(--glow-color));
 }
 
 .project-card img {
@@ -507,6 +520,11 @@ section {
 
 .project-link:hover {
   background: linear-gradient(90deg, #0077ff, #6c2bd9);
+}
+
+.project-link:focus {
+  outline: 2px solid var(--link-hover);
+  outline-offset: 2px;
 }
 
 /* Contact Section */
@@ -564,7 +582,7 @@ section {
 }
 
 .contact-description {
-  color: #777;
+  color: var(--text-color);
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 2rem;
@@ -620,6 +638,13 @@ section {
   flex: 1;
 }
 
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
 .form-group input,
 .form-group textarea {
   width: 100%;
@@ -629,6 +654,12 @@ section {
   font-size: 1rem;
   background: var(--bg-color);
   color: var(--text-color);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: 2px solid var(--link-hover);
+  outline-offset: 2px;
 }
 
 .form-group textarea {
@@ -649,15 +680,31 @@ section {
   font-size: 1rem;
 }
 
+.contact-form button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.contact-form button:hover:not(:disabled) {
+  background: linear-gradient(90deg, #0077ff, #6c2bd9);
+}
+
+.contact-form button:focus {
+  outline: 2px solid var(--link-hover);
+  outline-offset: 2px;
+}
+
 #form-message {
   margin-top: 1rem;
   font-size: 0.9rem;
-  color: var(--text-color);
 }
 
-/* Dark mode adjustments */
-[data-theme="dark"] .contact-description {
-  color: #aaa;
+#form-message.success {
+  color: var(--success-color);
+}
+
+#form-message.error {
+  color: var(--error-color);
 }
 
 /* Back to Top Button */
@@ -690,6 +737,11 @@ section {
   transform: scale(1.1);
 }
 
+#back-to-top:focus {
+  outline: 2px solid var(--link-hover);
+  outline-offset: 2px;
+}
+
 /* Footer */
 footer {
   background: var(--footer-bg);
@@ -714,7 +766,9 @@ footer {
     top: 70px;
     left: 0;
     right: 0;
-    background: var(--header-bg);
+    background: var(--card-bg);
+    border: 1px solid var(--skill-border);
+    border-radius: 8px;
     padding: 1rem;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     text-align: center;

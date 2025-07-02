@@ -36,6 +36,18 @@ function type() {
   }
 }
 
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   // Typewriter effect
   setTimeout(type, typingSpeed);
@@ -56,23 +68,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Sticky header scroll effect
   const header = document.querySelector("header");
-  window.addEventListener("scroll", () => {
+  const scrollHandler = debounce(() => {
     if (window.scrollY > 50) {
       header.classList.add("scrolled");
     } else {
       header.classList.remove("scrolled");
     }
-  });
+  }, 10);
+  window.addEventListener("scroll", scrollHandler);
 
   // Back to top button
   const backToTop = document.getElementById("back-to-top");
-  window.addEventListener("scroll", () => {
+  const backToTopHandler = debounce(() => {
     if (window.scrollY > 300) {
       backToTop.classList.add("visible");
     } else {
       backToTop.classList.remove("visible");
     }
-  });
+  }, 10);
+  window.addEventListener("scroll", backToTopHandler);
 
   backToTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -94,34 +108,62 @@ document.addEventListener("DOMContentLoaded", () => {
     themeToggle.querySelector("i").classList.toggle("ri-sun-line");
   });
 
+  // EmailJS configuration
+  const emailConfig = {
+    userId: "syK520a6xqM02GMTC",
+    serviceId: "service_naxoy4l",
+    templateId: "template_i05y8jr",
+  };
+  emailjs.init(emailConfig.userId);
+
   // EmailJS form submission
-  emailjs.init("syK520a6xqM02GMTC");
   const contactForm = document.getElementById("contact-form");
   const formMessage = document.getElementById("form-message");
-  contactForm.addEventListener("submit", (e) => {
+  contactForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    emailjs.send("service_naxoy4l", "template_i05y8jr", {
-      name: contactForm.name.value,
-      phone: contactForm.phone.value,
-      email: contactForm.email.value,
-      subject: contactForm.subject.value,
-      message: contactForm.message.value,
-    })
-    .then(() => {
+    const submitButton = contactForm.querySelector("button");
+    submitButton.disabled = true;
+    formMessage.textContent = "Sending...";
+    try {
+      await emailjs.send(emailConfig.serviceId, emailConfig.templateId, {
+        name: contactForm.name.value,
+        phone: contactForm.phone.value,
+        email: contactForm.email.value,
+        subject: contactForm.subject.value,
+        message: contactForm.message.value,
+      });
       formMessage.textContent = "Message sent successfully!";
-      formMessage.style.color = "green";
+      formMessage.classList.add("success");
       contactForm.reset();
-      setTimeout(() => { formMessage.textContent = ""; }, 3000);
-    }, (error) => {
-      formMessage.textContent = "Failed to send message. Please try again.";
-      formMessage.style.color = "red";
+      setTimeout(() => {
+        formMessage.textContent = "";
+        formMessage.classList.remove("success");
+      }, 3000);
+    } catch (error) {
+      formMessage.textContent = "Failed to send message. Please check your connection or try again later.";
+      formMessage.classList.add("error");
       console.error("EmailJS error:", error);
+      setTimeout(() => {
+        formMessage.classList.remove("error");
+      }, 3000);
+    } finally {
+      submitButton.disabled = false;
+    }
+  });
+
+  // Email link handler
+  document.querySelectorAll('.email-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const email = link.getAttribute('data-email');
+      window.location.href = `mailto:${email}`;
     });
   });
 
   // Hide preloader after page load
   window.addEventListener("load", () => {
     const preloader = document.getElementById("preloader");
+    preloader.style.transition = "opacity 0.5s ease";
     preloader.style.opacity = "0";
     setTimeout(() => {
       preloader.style.display = "none";
@@ -140,5 +182,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   sections.forEach(section => {
     observer.observe(section);
+  });
+
+  // Cleanup event listeners on unload
+  window.addEventListener("unload", () => {
+    window.removeEventListener("scroll", scrollHandler);
+    window.removeEventListener("scroll", backToTopHandler);
   });
 });
