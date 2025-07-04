@@ -49,6 +49,14 @@ function debounce(func, wait) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Hide preloader after DOM is loaded
+  const preloader = document.getElementById("preloader");
+  preloader.style.transition = "opacity 0.5s ease";
+  preloader.style.opacity = "0";
+  setTimeout(() => {
+    preloader.style.display = "none";
+  }, 500);
+
   // Typewriter effect
   setTimeout(type, typingSpeed);
 
@@ -158,16 +166,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const email = link.getAttribute('data-email');
       window.location.href = `mailto:${email}`;
     });
-  });
-
-  // Hide preloader after page load
-  window.addEventListener("load", () => {
-    const preloader = document.getElementById("preloader");
-    preloader.style.transition = "opacity 0.5s ease";
-    preloader.style.opacity = "0";
-    setTimeout(() => {
-      preloader.style.display = "none";
-    }, 500);
   });
 
   // Section animations

@@ -850,13 +850,14 @@ footer {
   #theme-toggle {
     order: 1; /* Place theme toggle to the left of hamburger */
     font-size: 1rem;
-    margin-right: 0.5rem; /* Add spacing between theme toggle and hamburger */
+    margin-left: auto; /* Push theme toggle and hamburger to the right */
+    margin-right: 0.5rem; /* Spacing between theme toggle and hamburger */
   }
 
   nav {
-    justify-content: flex-start; /* Align items to the left */
+    justify-content: space-between; /* Logo on left, hamburger and theme toggle on right */
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* Prevent wrapping to keep layout clean */
   }
 
   .site-logo {
@@ -874,7 +875,7 @@ footer {
     top: 70px;
     left: 0;
     right: 0;
-    background: var(--card-bg);
+    background: var(--skill-bg); /* Use white background in light mode, dark gray in dark mode */
     border: 1px solid var(--skill-border);
     border-radius: 8px;
     padding: 1rem;
