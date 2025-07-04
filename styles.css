@@ -129,7 +129,7 @@ nav {
 
 .site-logo:hover {
   transform: scale(1.05);
-  filter: drop-shadow(0 0 10px rgba(108, 43, 217, 0.7)); /* Glow effect on hover */
+  filter: drop-shadow(0 0 10px rgba(108, 43, 217, 0.7));
 }
 
 nav ul.nav-links {
@@ -290,21 +290,27 @@ nav ul li a:focus {
   color: transparent;
 }
 
-[data-theme="light"] .typewriter-text h3 #typewriter {
+#typewriter-container {
+  display: inline-block;
+  min-height: 2rem; /* Fixed height to prevent layout shift */
+  vertical-align: middle;
+}
+
+[data-theme="light"] #typewriter-container #typewriter {
   background: linear-gradient(90deg, #6c2bd9, #0077ff);
   background-clip: text;
   color: transparent;
   position: relative;
 }
 
-[data-theme="dark"] .typewriter-text h3 #typewriter {
+[data-theme="dark"] #typewriter-container #typewriter {
   background: linear-gradient(90deg, #9b59b6, #0077ff);
   background-clip: text;
   color: transparent;
   position: relative;
 }
 
-[data-theme="light"] .typewriter-text h3 #typewriter::after {
+[data-theme="light"] #typewriter-container #typewriter::after {
   content: '|';
   position: absolute;
   right: -0.5rem;
@@ -312,7 +318,7 @@ nav ul li a:focus {
   animation: blink 0.7s infinite;
 }
 
-[data-theme="dark"] .typewriter-text h3 #typewriter::after {
+[data-theme="dark"] #typewriter-container #typewriter::after {
   content: '|';
   position: absolute;
   right: -0.5rem;
@@ -838,6 +844,26 @@ footer {
 @media (max-width: 768px) {
   .hamburger {
     display: block;
+    order: 2; /* Place hamburger on the furthest right */
+  }
+
+  #theme-toggle {
+    order: 1; /* Place theme toggle to the left of hamburger */
+    font-size: 1rem;
+    margin-right: 0.5rem; /* Add spacing between theme toggle and hamburger */
+  }
+
+  nav {
+    justify-content: flex-start; /* Align items to the left */
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .site-logo {
+    order: 0; /* Keep logo on the left */
+    height: 56px;
+    max-width: 168px;
+    margin-right: 0.5rem;
   }
 
   nav ul.nav-links {
@@ -860,18 +886,8 @@ footer {
     display: flex;
   }
 
-  #theme-toggle {
-    font-size: 1rem;
-  }
-
-  .site-logo {
-    height: 56px;
-    max-width: 168px;
-    margin-right: 0.5rem;
-  }
-
   .site-logo:hover {
-    filter: drop-shadow(0 0 8px rgba(108, 43, 217, 0.7)); /* Smaller glow for mobile */
+    filter: drop-shadow(0 0 8px rgba(108, 43, 217, 0.7));
   }
 
   #hero {
