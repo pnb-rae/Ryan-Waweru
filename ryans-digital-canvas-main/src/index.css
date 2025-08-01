@@ -164,17 +164,20 @@
     background-size: 20px 20px;
   }
 
-  /* ✅ Typewriter Effect - FIXED */
+  /* ✅ Typewriter Effect - Fully Fixed */
   .typewriter {
     font-family: monospace;
     white-space: nowrap;
     overflow: hidden;
     display: inline-block;
-    color: hsl(var(--foreground)); /* Always visible */
-    background: none !important; /* Remove any gradient background */
+    color: hsl(var(--foreground)) !important; /* Force visibility */
+    background: none !important; /* Remove gradient */
     -webkit-background-clip: initial !important;
     -webkit-text-fill-color: initial !important;
-    border-right: 2px solid hsl(var(--primary)); /* Cursor color */
+    position: relative;
+    z-index: 10;
+    opacity: 1 !important;
+    border-right: 2px solid hsl(var(--primary)); /* Cursor */
     animation: typewriter 4s steps(40, end) forwards, blink 0.75s step-end infinite;
   }
   @keyframes typewriter {
@@ -287,6 +290,7 @@
     transform: scaleX(1);
   }
 }
+
 
 
 
