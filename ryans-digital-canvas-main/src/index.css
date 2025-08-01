@@ -168,15 +168,13 @@
 
   /* Typewriter Effect */
   .typewriter {
-  font-family: monospace;
-  white-space: nowrap;
-  overflow: hidden;
-  display: inline-block;
-  color: hsl(var(--foreground)); /* Visible text color */
-  border-right: 2px solid hsl(var(--primary)); /* Cursor color */
-  animation: typewriter 4s steps(40, end) forwards, blink 0.75s step-end infinite;
-}
-
+    font-family: monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    color: hsl(var(--foreground)); /* Visible text color */
+    border-right: 2px solid hsl(var(--primary)); /* Cursor color */
+    animation: typewriter 4s steps(40, end) forwards, blink 0.75s step-end infinite;
   }
   @keyframes typewriter {
     from { width: 0 }
@@ -288,4 +286,5 @@
     transform: scaleX(1);
   }
 }
+
 
