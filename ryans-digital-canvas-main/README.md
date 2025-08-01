@@ -1,73 +1,108 @@
-# Welcome to your Lovable project
+Ryan Waweru – Portfolio
 
-## Project info
+Overview
+This is my personal portfolio website showcasing my journey, skills, and projects as a Full Stack Developer, Backend Engineer, and AI Prompt Engineer. It’s designed to reflect my passion for technology, creativity, and problem-solving, blending modern UI design with smooth animations for an engaging user experience.
 
-**URL**: https://lovable.dev/projects/83746d8c-b5fe-4a7a-a0a2-2b8c3d1c03da
+The site highlights:
 
-## How can I edit this code?
+My Skills: Backend, Frontend, AI Prompt Engineering, and Copywriting.
 
-There are several ways of editing your application.
+Projects: Real-world solutions and demos.
 
-**Use Lovable**
+Experience: Years of hands-on work in development and creative tech.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/83746d8c-b5fe-4a7a-a0a2-2b8c3d1c03da) and start prompting.
+Why I Built This
+I wanted a portfolio that goes beyond the traditional static page—something interactive, dynamic, and personal. This project serves as:
 
-Changes made via Lovable will be committed automatically to this repo.
+A showcase of my technical skills in React, Tailwind, and animations.
 
-**Use your preferred IDE**
+A personal brand builder for attracting career opportunities and collaborations.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+A testing ground for new technologies, like integrating AI-powered features and advanced design elements.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Tech Stack
+Frontend: React + TypeScript
 
-Follow these steps:
+Styling: Tailwind CSS + Custom Animations
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Routing: React Router
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+State Management: Context API
 
-# Step 3: Install the necessary dependencies.
-npm i
+Other Libraries:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+tailwindcss-animate for transitions
+
+lucide-react for icons
+
+Build Tool: Vite
+
+Deployment: Vercel
+
+Key Features
+✅ Responsive Design – Works seamlessly across all devices
+✅ Dark / Light Mode Toggle – Saves user preference
+✅ Smooth Animations & Particle Effects – Dynamic and modern feel
+✅ Typewriter Text Effect – Engaging hero section headline
+✅ Reusable Components – For easy scalability
+
+Getting Started
+1. Clone the Repository
+bash
+Copy
+Edit
+git clone https://github.com/yourusername/ryan-portfolio.git
+cd ryan-portfolio
+2. Install Dependencies
+bash
+Copy
+Edit
+npm install
+3. Run Development Server
+bash
+Copy
+Edit
 npm run dev
-```
+The site will run at http://localhost:5173.
 
-**Edit a file directly in GitHub**
+Build for Production
+bash
+Copy
+Edit
+npm run build
+Then deploy the dist folder to your hosting platform (Vercel recommended).
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Color Theme
+The theme is inspired by my personal branding:
 
-**Use GitHub Codespaces**
+Primary: Deep Purple (hsl(259 94% 51%))
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Accent: Electric Blue (#007aff)
 
-## What technologies are used for this project?
+Dark Mode: Default on load, with Light Mode toggle available.
 
-This project is built with:
+Roadmap
+Here’s what I plan to add in the future:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+✅ AI Integration: Smart chatbot or assistant embedded in the site.
 
-## How can I deploy this project?
+✅ Personal Blog: Sharing insights on Backend Development, AI, and Tech Trends.
 
-Simply open [Lovable](https://lovable.dev/projects/83746d8c-b5fe-4a7a-a0a2-2b8c3d1c03da) and click on Share -> Publish.
+✅ Project Filters & Search: Make browsing my portfolio easier.
 
-## Can I connect a custom domain to my Lovable project?
+✅ Downloadable CV Generator: Dynamic resume builder with latest projects.
 
-Yes, you can!
+✅ Animations Upgrade: Micro-interactions and enhanced page transitions.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Live Demo
+View Live on Vercel (Add your deployment link here)
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Contact
+📧 Email: ryanwaweru.dev@gmail.com
+🔗 LinkedIn: linkedin.com/in/ryanwaweru
+💻 GitHub: github.com/ryanwaweru
+
+License
+This project is open source and available under the MIT License.
+
+
