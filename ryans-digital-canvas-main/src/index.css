@@ -48,8 +48,6 @@
     --ring: hsl(217.2 91.2% 59.8%);
   }
 
-  /* Removed global borders that caused lines everywhere */
-  
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
@@ -166,13 +164,16 @@
     background-size: 20px 20px;
   }
 
-  /* Typewriter Effect */
+  /* ✅ Typewriter Effect - FIXED */
   .typewriter {
     font-family: monospace;
     white-space: nowrap;
     overflow: hidden;
     display: inline-block;
-    color: hsl(var(--foreground)); /* Visible text color */
+    color: hsl(var(--foreground)); /* Always visible */
+    background: none !important; /* Remove any gradient background */
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: initial !important;
     border-right: 2px solid hsl(var(--primary)); /* Cursor color */
     animation: typewriter 4s steps(40, end) forwards, blink 0.75s step-end infinite;
   }
@@ -286,5 +287,6 @@
     transform: scaleX(1);
   }
 }
+
 
 
