@@ -3,29 +3,66 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ryan's Digital Canvas</title>
+    <title>Ryan's Digital Canvas | Portfolio</title>
 
-    <!-- Basic Meta -->
-    <meta name="description" content="An immersive digital space to explore and showcase my artistic vision." />
+    <!-- ✅ Basic SEO Meta -->
+    <meta
+      name="description"
+      content="Ryan Waweru's digital portfolio – Showcasing creativity, technology, and innovation through an immersive user experience."
+    />
+    <meta name="keywords" content="Ryan Waweru, Portfolio, Web Developer, Digital Designer, Tech Enthusiast" />
     <meta name="author" content="Ryan Waweru" />
 
-    <!-- Open Graph Meta -->
-    <meta property="og:title" content="Ryan's Vision" />
-    <meta property="og:description" content="An immersive digital space to explore and showcase my artistic vision." />
+    <!-- ✅ Open Graph for Social Sharing -->
+    <meta property="og:title" content="Ryan's Digital Canvas" />
+    <meta
+      property="og:description"
+      content="An immersive digital space showcasing creativity, technology, and design."
+    />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/og-preview.png" />
     <meta property="og:url" content="https://yourdomain.com" />
 
-    <!-- Twitter Card Meta -->
+    <!-- ✅ Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Ryan's vision" />
-    <meta name="twitter:description" content="An immersive digital space to explore and showcase my artistic vision." />
+    <meta name="twitter:title" content="Ryan's Digital Canvas" />
+    <meta
+      name="twitter:description"
+      content="Explore Ryan's creative and tech-driven digital portfolio."
+    />
     <meta name="twitter:image" content="/og-preview.png" />
+
+    <!-- ✅ Favicon & Theme -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="theme-color" content="#0f172a" />
+
+    <!-- ✅ Tailwind Preload Fonts (optional for performance) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
-  <body>
+  <body class="bg-gray-950 text-white antialiased">
+    <!-- ✅ Preloader (Optional) -->
+    <div id="preloader" class="fixed inset-0 flex items-center justify-center bg-gray-950 z-50">
+      <img src="/logo.png" alt="Loading..." class="w-16 h-16 animate-spin" />
+    </div>
+
+    <!-- ✅ Root React Mount -->
     <div id="root"></div>
+
+    <!-- ✅ Script -->
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Hide preloader when app loads
+      window.addEventListener("load", () => {
+        document.getElementById("preloader").style.display = "none";
+      });
+    </script>
   </body>
 </html>
+
 
