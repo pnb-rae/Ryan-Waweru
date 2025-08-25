@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Heart } from "lucide-react"
+import { Github, Linkedin, Twitter } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const quickLinks = [
@@ -99,8 +99,8 @@ export default function Footer() {
           <p className="text-muted-foreground text-sm">
             © {new Date().getFullYear()} Ryan Waweru. All rights reserved.
           </p>
-          <div className="flex items-center gap-1 text-muted-foreground text-sm">
-            Made with <Heart className="w-4 h-4 text-red-500 mx-1" /> in Kenya
+          <div className="text-muted-foreground text-sm">
+            Designed & developed by Ryan Waweru
           </div>
         </div>
       </div>
